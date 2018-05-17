@@ -1,7 +1,9 @@
-# Nexus CLI
-[![Build Status](https://travis-ci.org/RiotGamesMinions/nexus_cli.png)](https://travis-ci.org/RiotGamesMinions/nexus_cli)
+# Nexus CLI No-eXtlib
 
 A CLI wrapper around Sonatype Nexus REST calls.
+
+This is a fork of [nexus_cli](https://github.com/RiotGamesMinions/nexus_cli) without chozo/extlib dependencies.
+The original author is Kyle Allan of RiotGames.
 
 # Requirements
 

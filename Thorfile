@@ -21,7 +21,7 @@ class Default < Thor
     Rake::Task["install"].execute
   end
 
-  desc "release", "Create tag v#{NexusCli.version} and build and push nexus-cli-#{NexusCli.version}.gem to Rubygems"
+  desc "release", "Create tag v#{NexusCli.version} and build and push nexus-cli_nx-#{NexusCli.version}.gem to Rubygems"
   def release
     Rake::Task["release"].execute
   end
