@@ -14,8 +14,8 @@ describe NexusCli::CustomMetadataActions do
     let(:get_artifact_array) { custom_metadata_actions.send(:get_artifact_array, document) }
 
     it "returns an array of strings" do
-      get_artifact_array.should be_a(Array)
-      get_artifact_array.each { |element| element.should be_a(String) }
+      expect(get_artifact_array).to be_a(Array)
+      get_artifact_array.each { |element| expect(element).to be_a(String) }
     end
   end
 end

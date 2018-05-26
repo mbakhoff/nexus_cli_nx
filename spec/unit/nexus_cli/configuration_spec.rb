@@ -53,7 +53,7 @@ describe NexusCli::Configuration do
       end
 
       before do
-        YAML.stub(:load_file).and_return(partial_config_file)
+        allow(YAML).to receive(:load_file).and_return(partial_config_file)
       end
 
       it "uses non-overridden parts from the file" do
@@ -66,10 +66,6 @@ describe NexusCli::Configuration do
     subject { from_file }
     let(:from_file) { configuration.from_file }
 
-    before do
-      YAML.stub(:load_file).and_return(valid_config)
-    end
-
     context "when the NEXUS_CONFIG environment variable exists" do
       let(:nexus_config_path) { "/home/var/nexus_cli" }
 
@@ -78,7 +74,7 @@ describe NexusCli::Configuration do
       end
 
       it "loads the config file from NEXUS_CONFIG" do
-        YAML.should_receive(:load_file).with(nexus_config_path)
+        expect(YAML).to receive(:load_file).with(nexus_config_path).and_return(valid_config)
         from_file
       end
     end
@@ -91,7 +87,7 @@ describe NexusCli::Configuration do
       end
 
       it "loads the config file from DEFAULT_FILE" do
-        YAML.should_receive(:load_file).with(nexus_config_path)
+        expect(YAML).to receive(:load_file).with(nexus_config_path).and_return(valid_config)
         from_file
       end
     end

@@ -9,9 +9,9 @@ describe NexusCli::RemoteFactory do
     let(:create) { remote_factory.create(overrides) }
 
     before do
-      NexusCli::Connection.stub(:new)
-      remote_factory.stub(:running_nexus_pro?).and_return(false)
-      NexusCli::OSSRemote.stub(:new)
+      expect(NexusCli::Connection).to receive(:new)
+      allow(remote_factory).to receive(:running_nexus_pro?).and_return(false)
+      expect(NexusCli::OSSRemote).to receive(:new)
     end
 
     context "when overrides are passed in" do
@@ -25,7 +25,7 @@ describe NexusCli::RemoteFactory do
       }
 
       it "loads configuration from the overrides" do
-        NexusCli::Configuration.should_receive(:from_overrides).with(overrides)
+        expect(NexusCli::Configuration).to receive(:from_overrides).with(overrides)
         create
       end
     end
@@ -34,7 +34,7 @@ describe NexusCli::RemoteFactory do
       let(:overrides) { nil }
 
       it "loads configuration from the config file" do
-        NexusCli::Configuration.should_receive(:from_file)
+        expect(NexusCli::Configuration).to receive(:from_file)
         create
       end
     end

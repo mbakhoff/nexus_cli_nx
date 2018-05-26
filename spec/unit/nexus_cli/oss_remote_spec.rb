@@ -42,17 +42,17 @@ describe NexusCli do
   end
 
   it "gives you errors when you attempt to pull an artifact and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.pull_artifact "com.something:something:tgz:1.0.0", nil}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 
   it "gives you errors when you attempt to get an artifact's info and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.get_artifact_info "com.something:something:tgz:1.0.0"}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 
   it "gives you errors when you attempt to pull an artifact with classifier and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.pull_artifact "com.something:something:tgz:x64:1.0.0", nil}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 
@@ -78,7 +78,7 @@ describe NexusCli do
   end
 
   it "gives you errors when you attempt to get an artifact's download url and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.get_artifact_download_url "com.something:something:tgz:1.0.0"}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 end

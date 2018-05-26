@@ -15,7 +15,7 @@ describe NexusCli::ProRemote do
   end
 
   it "gives you errors when you attempt to get an artifact's custom info and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.get_artifact_custom_info("com.something:something:tgz:1.0.0")}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 
@@ -28,7 +28,7 @@ describe NexusCli::ProRemote do
   end
 
   it "gives you errors when you attempt to clear an artifact's custom info and it cannot be found" do
-    HTTPClient.any_instance.stub(:get).and_raise(NexusCli::ArtifactNotFoundException)
+    expect_any_instance_of(HTTPClient).to receive(:get).and_raise(NexusCli::ArtifactNotFoundException)
     expect {remote.clear_artifact_custom_info("com.something:something:tgz:1.0.0")}.to raise_error(NexusCli::ArtifactNotFoundException)
   end
 
