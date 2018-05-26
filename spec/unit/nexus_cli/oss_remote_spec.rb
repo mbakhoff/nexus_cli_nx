@@ -1,15 +1,16 @@
 require 'spec_helper'
 
-remote = NexusCli::OSSRemote.new(
-  'url' => 'http://localhost:8081/nexus',
-  'repository' => 'releases',
-  'username' => 'admin',
-  'password' => 'admin123'
-)
-
+def remote
+  NexusCli::OSSRemote.new(
+    'url' => 'http://localhost:8081/nexus',
+    'repository' => 'releases',
+    'username' => 'admin',
+    'password' => 'admin123'
+  )
+end
 
 fake_xml = <<EOS
-    <search-results>
+<search-results>
   <totalCount>1</totalCount>
   <from>-1</from>
   <count>-1</count>
