@@ -1,4 +1,5 @@
 # Nexus CLI No-eXtlib
+[![Build Status](https://travis-ci.org/mbakhoff/nexus_cli_nx.png)](https://travis-ci.org/mbakhoff/nexus_cli_nx)
 
 A CLI wrapper around Sonatype Nexus REST calls.
 
