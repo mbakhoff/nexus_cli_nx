@@ -11,7 +11,7 @@ The original author is Kyle Allan of RiotGames.
 
 # Installation
 
-1. Install the Gem - `gem install nexus_cli`
+1. Install the Gem - `gem install nexus_cli_nx`
 2. Create a file in your user's home directory named `.nexus_cli`
 3. Give the file the following information:
 

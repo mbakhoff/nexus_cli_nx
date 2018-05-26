@@ -11,17 +11,17 @@ class Default < Thor
   include Thor::RakeCompat
   Bundler::GemHelper.install_tasks
 
-  desc "build", "Build nexus-cli-#{NexusCli.version}.gem into the pkg directory"
+  desc "build", "Build nexus_cli_nx-#{NexusCli.version}.gem into the pkg directory"
   def build
     Rake::Task["build"].execute
   end
 
-  desc "install", "Build and install nexus-cli-#{NexusCli.version}.gem into system gems"
+  desc "install", "Build and install nexus_cli_nx-#{NexusCli.version}.gem into system gems"
   def install
     Rake::Task["install"].execute
   end
 
-  desc "release", "Create tag v#{NexusCli.version} and build and push nexus-cli_nx-#{NexusCli.version}.gem to Rubygems"
+  desc "release", "Create tag v#{NexusCli.version} and build and push nexus_cli_nx-#{NexusCli.version}.gem to Rubygems"
   def release
     Rake::Task["release"].execute
   end
