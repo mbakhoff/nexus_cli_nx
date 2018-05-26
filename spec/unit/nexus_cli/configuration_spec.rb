@@ -136,13 +136,6 @@ describe NexusCli::Configuration do
     it "returns the repository" do
       expect(repository_config.repository).to eq("releases")
     end
-
-    context "when repository has illegal values" do
-      let(:repository) { "ILLEGAL VALUE" }
-      it "makes it legal" do
-        expect(repository_config.repository).to eq("illegal_value")
-      end
-    end
   end
 
   describe "#username" do
