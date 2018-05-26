@@ -3,6 +3,7 @@
 .rake_tasks~
 .project
 .buildpath
+*.iml
 tmp/
 pkg/
 *.gem
