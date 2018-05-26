@@ -3,7 +3,6 @@ require 'httpclient'
 require 'nexus_cli/errors'
 require 'rexml/document'
 require 'yaml'
-require 'active_support/core_ext/hash'
 
 module NexusCli
   DEFAULT_ACCEPT_HEADER = {

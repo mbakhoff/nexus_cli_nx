@@ -19,9 +19,8 @@ module NexusCli
       # @return [NexusCli::Configuration]
       def from_overrides(overrides)
         raise MissingSettingsFileException unless overrides
-        overrides = overrides.with_indifferent_access
 
-        configuration = (load_config || Hash.new).with_indifferent_access
+        configuration = load_config || Hash.new
         configuration.merge!(overrides)
         new(configuration)
       end
@@ -33,7 +32,6 @@ module NexusCli
       def from_file
         config = load_config
         raise MissingSettingsFileException unless config
-        config = config.with_indifferent_access
         new(config)
       end
 
@@ -84,10 +82,10 @@ module NexusCli
     attr_accessor :password
 
     def initialize(options)
-      @url = options[:url]
-      @repository = options[:repository]
-      @username = options[:username]
-      @password = options[:password]
+      @url = options[:url] || options['url']
+      @repository = options[:repository] || options['repository']
+      @username = options[:username] || options['username']
+      @password = options[:password] || options['password']
 
       if @repository.is_a?(String)
         @repository = @repository.gsub(' ', '_')
