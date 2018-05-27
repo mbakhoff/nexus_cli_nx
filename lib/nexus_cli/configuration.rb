@@ -95,5 +95,12 @@ module NexusCli
     def [](attr)
       self.instance_variable_get('@' + attr.to_s)
     end
+
+    def []=(attr, value)
+      self.instance_variable_set('@' + attr.to_s, value)
+      if @repository.is_a?(String)
+        @repository = @repository.gsub(' ', '_')
+      end
+    end
   end
 end
