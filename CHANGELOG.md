@@ -1,3 +1,8 @@
+# 4.1.3
+
+* added support for ruby 2.3+
+* removed chozo/extlib/activesupport dependencies
+
 # 4.1.0
 
 * [#92](https://github.com/RiotGames/nexus_cli/pull/92) Added a new task for gettting an artifact's download URL
